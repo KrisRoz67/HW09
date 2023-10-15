@@ -34,7 +34,7 @@ public class CheckingAccount extends BankAccount {
             setBalance(getBalance() - amount);
         } else {
             throw new RuntimeException("Withdrawal is impossible , you do not " +
-                    "have enough money or you limit does not allow this operation");
+                    "have enough money or your limit does not allow this operation");
         }
         System.out.println("Withdrawal of " + amount + " successful. Current balance:" + getBalance());
     }
