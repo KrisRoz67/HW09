@@ -23,7 +23,7 @@ public class CheckingAccount extends BankAccount {
 
     @Override
     public double countTheRate() {
-        System.out.println("Unfortunately , rate is 0  for this type of account. ");
+        System.out.println("\nUnfortunately , rate is 0  for this type of account.\n");
         return 0;
     }
 
@@ -36,6 +36,6 @@ public class CheckingAccount extends BankAccount {
             throw new RuntimeException("Withdrawal is impossible , you do not " +
                     "have enough money or your limit does not allow this operation");
         }
-        System.out.println("Withdrawal of " + amount + " successful. Current balance:" + getBalance());
+        System.out.printf("\nWithdrawal of %s eur  successful. Current balance: %s eur \n" , amount,getBalance());
     }
 }

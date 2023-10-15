@@ -60,11 +60,8 @@ public class CreditAccount extends BankAccount {
     public double countTheRate() {
         try {
             if ((getBalance() < 0) && (Math.abs(getBalance()) <= creditLimit)) {
-                double interestAmount = (annualPercentage / 12) / 100 * loanPeriod * Math.abs(getBalance());
-                System.out.printf("You have to return  %s eur.\n", Math.abs(getBalance()));
-                return interestAmount;
+                return (annualPercentage / 12) / 100 * loanPeriod * Math.abs(getBalance());
             } else {
-                System.out.printf("\nYou don't owe the bank anything, there's still money in your account : %s eur:", getBalance());
                 return 0;
             }
         } catch (Exception e) {
@@ -74,16 +71,11 @@ public class CreditAccount extends BankAccount {
 
     @Override
     public void withdraw(double amount) {
-        System.out.printf("""
-                Your credit limit is %s . Try to withdraw from credit account : %s eur
-                """, creditLimit, amount);
+        System.out.printf("\nYour credit limit is %s eur. Try to withdraw from credit account : %s eur \n ", creditLimit+getBalance(), amount);
         double res = getBalance() - amount;
-        if ((res < 0) && (Math.abs(res) <= creditLimit)) {
+        if (Math.abs(res) <= creditLimit) {
             setBalance(res);
-            System.out.println("Withdrawal of " + amount + " eur was successful. Current balance:" + getBalance() + "eur");
-        } else if (res > 0) {
-            setBalance(res);
-            System.out.println("Withdrawal of " + amount + " eur was successful. Current balance:" + getBalance() + " eur");
+            System.out.println("\nWithdrawal of " + amount + " eur was successful. Current balance:" + getBalance() + "eur\n");
         } else {
             throw new RuntimeException("Withdrawal is impossible , you exceeded the limit ");
         }

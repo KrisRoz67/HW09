@@ -38,9 +38,8 @@ public class SavingsAccount extends BankAccount {
     @Override
     public double countTheRate() {
         try {
-            double interestIncome = (annualPercentage / 12) / 100 * periodOfMonths * getBalance();
-            System.out.printf("Saving period is %s months and your current balance is %s .", periodOfMonths, getBalance());
-            return interestIncome;
+            return  (annualPercentage / 12) / 100 * periodOfMonths * getBalance();
+
 
         } catch (Exception e) {
             throw new RuntimeException("Something went wrong");

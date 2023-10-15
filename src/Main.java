@@ -14,10 +14,20 @@ public class Main {
                3);
         System.out.println(savingsAccount);
         savingsAccount.deposit(500);
-        savingsAccount.withdraw(400);
-       System.out.printf("So,you will get extra %s eur in the end of saving period\n"
-               ,savingsAccount.countTheRate());
-        System.out.println("-----------------------------------");
+        savingsAccount.withdraw(600);
+        String str1  =String.format("""
+                        Saving period is %s months ,deposit interest rate %s and your current balance is %s.
+                        So,you will get extra %s eur in the end of saving period
+                        .""",
+     savingsAccount.getPeriodOfMonths(),
+             savingsAccount.getAnnualPercentage(),
+             savingsAccount.getBalance(),
+             savingsAccount.countTheRate());
+        String str2 = String.format("\nYou do not have money on your account. So, you will get %s interest on deposit\n",
+             savingsAccount.countTheRate());
+     System.out.printf( savingsAccount.countTheRate() > 0 ? str1: str2);
+
+     System.out.println("-----------------------------------");
         CheckingAccount checkingAccount = new CheckingAccount(
                 "EE123123123123666999",
                 1000,
@@ -37,10 +47,15 @@ public class Main {
                 3000);
         System.out.println(creditAccount);
         creditAccount.deposit(300);
-        creditAccount.withdraw(200);
-        System.out.println(creditAccount.countTheRate() > 0 ? "Also you need return extra "
+        creditAccount.withdraw(300);
+        creditAccount.withdraw(300);
+        System.out.println(creditAccount.countTheRate() > 0 ? "You have to return " +Math.abs(creditAccount.getBalance())
+                +" eur.\nAlso you need return extra "
                 + creditAccount.countTheRate()
-                + "eur in the end of loan period ("+creditAccount.getLoanPeriod()
-                + "s months)": "\nYou do not have to pay interest on loan");
+                + " eur in the end of loan period ("+creditAccount.getLoanPeriod()
+                + "s months)"
+                : "\nYou don't owe the bank anything, there's still money in your account :" +creditAccount.getBalance()
+                + " eur:\". You do not have to pay interest on loan");
+
         }
     }

@@ -58,7 +58,7 @@ public abstract class BankAccount {
 
     public void withdraw(double amount) {
         System.out.printf("\nTry to withdraw : %s eur\n", amount);
-        if (amount > 0 && getBalance() - amount > 0) {
+        if (amount > 0 && getBalance() - amount >= 0) {
             setBalance(getBalance() - amount);
         } else {
             throw new RuntimeException("Withdrawal is impossible , you do not have enough" +
