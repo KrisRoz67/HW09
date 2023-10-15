@@ -36,9 +36,11 @@ public class Main {
                 12,
                 3000);
         System.out.println(creditAccount);
-        creditAccount.deposit(200);
-        creditAccount.withdraw(3200);
-        System.out.printf("Also you need return extra %s eur in the end of loan period (%s months)",
-                creditAccount.countTheRate(), creditAccount.getLoanPeriod());
+        creditAccount.deposit(300);
+        creditAccount.withdraw(200);
+        System.out.println(creditAccount.countTheRate() > 0 ? "Also you need return extra "
+                + creditAccount.countTheRate()
+                + "eur in the end of loan period ("+creditAccount.getLoanPeriod()
+                + "s months)": "\nYou do not have to pay interest on loan");
         }
     }
