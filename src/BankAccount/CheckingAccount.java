@@ -23,7 +23,7 @@ public class CheckingAccount extends BankAccount {
 
     @Override
     public double countTheRate() {
-        System.out.println("Unfortunately , rate for this type of account is not exist. ");
+        System.out.println("Unfortunately , rate is 0  for this type of account. ");
         return 0;
     }
 

@@ -36,7 +36,7 @@ public abstract class BankAccount {
     public void setAccountNumber(String accountNumber) {
         if (accountNumber.startsWith("EE") && accountNumber.length() == 20) {
             this.accountNumber = accountNumber;
-        } else throw new RuntimeException("Account nr format is not correct. Account nr shoud be EE + 18 numbers");
+        } else throw new RuntimeException("Account nr format is not correct. Account nr should be EE + 18 numbers");
     }
 
     public double getBalance() {

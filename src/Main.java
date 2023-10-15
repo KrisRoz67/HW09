@@ -14,7 +14,7 @@ public class Main {
                3);
         System.out.println(savingsAccount);
         savingsAccount.deposit(500);
-        savingsAccount.withdraw(500);
+        savingsAccount.withdraw(400);
        System.out.printf("So,you will get extra %s eur in the end of saving period\n"
                ,savingsAccount.countTheRate());
         System.out.println("-----------------------------------");
