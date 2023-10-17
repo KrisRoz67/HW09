@@ -29,8 +29,8 @@ public class SavingsAccount extends BankAccount {
         }
     }
 
-    public SavingsAccount(String accountNumber, double balance, boolean isCredit, double annualPercentage, int periodOfMonths) {
-        super(accountNumber, balance, isCredit);
+    public SavingsAccount(String accountNumber, double balance, double annualPercentage, int periodOfMonths) {
+        super(accountNumber, balance);
         setAnnualPercentage(annualPercentage);
         setPeriodOfMonths(periodOfMonths);
     }

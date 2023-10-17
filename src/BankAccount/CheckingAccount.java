@@ -1,8 +1,8 @@
 package src.BankAccount;
 
 public class CheckingAccount extends BankAccount {
-    public CheckingAccount(String accountNumber, double balance, boolean isCredit, double withdrawLimit) {
-        super(accountNumber, balance, isCredit);
+    public CheckingAccount(String accountNumber, double balance, double withdrawLimit) {
+        super(accountNumber, balance);
         setWithdrawLimit(withdrawLimit);
     }
 

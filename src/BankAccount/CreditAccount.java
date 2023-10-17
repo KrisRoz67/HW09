@@ -4,6 +4,15 @@ public class CreditAccount extends BankAccount {
     private double annualPercentage;
     private int loanPeriod;
     private double creditLimit;
+    boolean isCredit;
+
+    public boolean getIsCredit() {
+        return isCredit;
+    }
+
+    public void setIsCredit(boolean credit) {
+        isCredit = credit;
+    }
 
     public double getAnnualPercentage() {
 
@@ -50,7 +59,8 @@ public class CreditAccount extends BankAccount {
                          double annualPercentage,
                          int loanPeriod,
                          double creditLimit) {
-        super(accountNumber, balance, isCredit);
+        super(accountNumber, balance);
+        setIsCredit(isCredit);
         setAnnualPercentage(annualPercentage);
         setCreditLimit(creditLimit);
         setLoanPeriod(loanPeriod);
@@ -85,6 +95,15 @@ public class CreditAccount extends BankAccount {
     public String toString() {
         return String.format("\nA/c %s : Initial Balance : %s eur," +
                 "Your credit limit :%s eur", getAccountNumber(), getBalance(), getCreditLimit());
+    }
+
+    @Override
+    protected void setBalance(double balance) {
+        if (balance >= 0 && !isCredit) {
+            this.balance = balance;
+        } else if (isCredit) {
+            this.balance = balance;
+        } else throw new IllegalArgumentException("Balance can't be negative");
     }
 }
 

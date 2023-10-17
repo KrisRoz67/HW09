@@ -4,25 +4,10 @@ public abstract class BankAccount {
 
     String accountNumber;
     double balance;
-    boolean isCredit;
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
-    public boolean getIsCredit() {
-        return isCredit;
-    }
-
-    public void setIsCredit(boolean credit) {
-        isCredit = credit;
-    }
-
-
-    public BankAccount(String accountNumber, double balance, boolean isCredit) {
+    public BankAccount(String accountNumber, double balance) {
         setAccountNumber(accountNumber);
-        setIsCredit(isCredit);
-        setBalance(balance, isCredit);
+        setBalance(balance);
     }
 
     public abstract double countTheRate();
@@ -43,10 +28,8 @@ public abstract class BankAccount {
         return balance;
     }
 
-    protected void setBalance(double balance, boolean isCredit) {
-        if (balance >= 0 && !isCredit) {
-            this.balance = balance;
-        } else if (isCredit) {
+    protected void setBalance(double balance) {
+        if (balance >= 0 ) {
             this.balance = balance;
         } else throw new IllegalArgumentException("Balance can't be negative");
     }

@@ -9,7 +9,6 @@ public class Main {
        SavingsAccount savingsAccount = new SavingsAccount(
                "EE123123123123666666",
                100,
-               false,
                4.5,
                3);
         System.out.println(savingsAccount);
@@ -31,7 +30,6 @@ public class Main {
         CheckingAccount checkingAccount = new CheckingAccount(
                 "EE123123123123666999",
                 1000,
-                false,
                 400);
         System.out.println(checkingAccount);
         checkingAccount.withdraw(300);
